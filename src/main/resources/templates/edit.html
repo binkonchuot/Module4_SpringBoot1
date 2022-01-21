@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+//id,user,pass,fullname,phone,email,avatar
+<div class="container">
+    <h2>User Management</h2>
+    <form action="/create" method="post" th:object="${user}" enctype="multipart/form-data">
+        <div>
+            <button>
+                <a href="/show">Back</a>
+            </button>
+        </div>
+        <table class="table table-striped">
+            <tbody>
+            <tr>
+                <td><input th:field = "*{id}" hidden></td>
+                <td><input th:field = "*{user_name}"></td>
+                <td><input th:field="*{pass}"></td>
+                <td><input th:field="*{fullname}"></td>
+                <td><input th:field="*{phone}"></td>
+                <td><input th:field="*{email}"></td>
+                <td><input type="file" name="upImg" placeholder=" Nhap Avatar"></td>
+            </tr>
+                <td><select th:field="*{role}" >
+                    <option th:each="c, loop:${roles}" th:text="${c.name_role}" th:value="${c.id}"></option>
+                </select>
+                </td>
+            </tr>
+            <button class="btn btn-success" type="submit">Create</button>
+            </tbody>
+        </table>
+    </form>
+</div>
+</body>
+</html>

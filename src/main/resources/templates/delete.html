@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete employee</title>
+</head>
+<body>
+<form method="post">
+    <div>
+        <div>
+            <button>
+                <a href="/show">Back</a>
+            </button>
+        </div>
+        <div>
+            <div>
+                <h1>User information</h1>
+            </div>
+            <div>
+                <table th:object="${user}">
+                    <tr>
+                        <th>user_name</th>
+                        <th>pass</th>
+                        <th>fullname</th>
+                        <th>phone</th>
+                        <th>email</th>
+                        <th>avatar</th>
+                        <th>role.name_role</th>
+                    </tr>
+                    <tr>
+                        <td th:text="*{user_name}"></td>
+                        <td th:text="*{pass}"></td>
+                        <td th:text="*{fullname}"></td>
+                        <td th:text="*{phone}"></td>
+                        <td th:text="*{email}"></td>
+                        <td th:text="*{avatar}"></td>
+                        <td th:text="*{role.name_role}"></td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <button type="submit">Delete user</button>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>
